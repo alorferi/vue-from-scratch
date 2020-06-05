@@ -1,0 +1,15 @@
+
+/node_modules
+/.idea
+.DS_Store
+node_modules/micromatch/lib/.DS_Store
+node_modules/extglob/lib/.DS_Store
+node_modules/timers-browserify/.DS_Store
+node_modules/querystring/test/.index.js.un~
+node_modules/querystring/.Readme.md.un~
+node_modules/querystring/.package.json.un~
+node_modules/querystring/.History.md.un~
+node_modules/move-concurrently/README.md~
+node_modules/micromatch/lib/.DS_Store
+node_modules/extglob/lib/.DS_Store
+node_modules/copy-concurrently/README.md~

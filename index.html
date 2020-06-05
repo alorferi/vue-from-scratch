@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<title id="title">This is title</title>
+<!-- development version, includes helpful console warnings -->
+<!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+
+<link rel="stylesheet" href="index.css">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<body>
+
+<div id="app-4">
+    <h1>App4: List item checked </h1>
+    <accordion v-for="item in items" :key="item.id" :item="item"></accordion>
+</div>
+
+<script>
+
+    Vue.component('accordion', {
+        props: ["item"],
+        template: `
+            <div>
+                <h1>{{item.title}}</h1>
+                <p @click="toggle = ! toggle">Details</p>
+                <p v-if="toggle">
+                    {{item.description}}
+                </p>
+            </div>
+
+        `,
+        data: function () {
+            return {
+                toggle: false
+            }
+        }
+    })
+    new Vue({
+        el: "#app-4",
+        data: {
+            items: [
+                {id: 1, title: "Title 1", description: "This is description 1"},
+                {id: 2, title: "Title 2", description: "This is description 2"},
+                {id: 3, title: "Title 3", description: "This is description 3"},
+                {id: 4, title: "Title 4", description: "This is description 4"},
+                {id: 5, title: "Title 5", description: "This is description 5"}
+            ]
+        }
+    })
+</script>
+
+<div id="app-3">
+    <h1>App3: List item checked </h1>
+    <input type="number" v-model="price">
+    <div>Tax : {{taxFormatted}}</div>
+    <div>Total : {{ totalFormatted }}</div>
+</div>
+
+<script>
+    new Vue({
+        el: '#app-3',
+        data: {
+            price: 100,
+        },
+        computed: {
+            tax: function () {
+                return this.price * 0.15;
+            },
+            taxFormatted: function () {
+                return "$" + this.tax
+            },
+            total: function () {
+                return parseFloat(this.price) + parseFloat(this.tax)
+            },
+            totalFormatted: function () {
+                return "$" + this.total;
+            }
+        }
+    })
+
+</script>
+
+
+<div id="app-2">
+    <h1>App2: List item checked </h1>
+    <ul>
+        <li v-for="item in items">
+
+            <input type="checkbox" v-model="item.checked"> {{item.text}}
+            <button @click="item.checked = !item.checked">
+                Toggle
+            </button>
+
+        </li>
+    </ul>
+
+</div>
+
+<script>
+    new Vue({
+        el: '#app-2',
+        data: {
+            item: "",
+            items: [
+                {text: "item-1", checked: false},
+                {text: "item2", checked: true},
+                {text: "item3", checked: true},
+                {text: "item4", checked: false},
+                {text: "item5", checked: true}
+            ],
+        }
+    })
+
+</script>
+
+
+<div id="app-1">
+
+    <h1>App1
+    </h1>
+
+    <h1 v-if="not_empty">Item added</h1>
+    <h1 v-else="not_empty">There is an error</h1>
+    <ul>
+        <li v-for="item in items">{{item}}</li>
+    </ul>
+
+    <input type="text" v-model="item">
+    <button @click="items.push(item)">Add Item</button>
+</div>
+
+
+<script>
+    new Vue({
+        el: '#app-1',
+        data: {
+            item: "",
+            items: [
+                "item1",
+                "item2"
+            ],
+            not_empty: false,
+
+        }
+    })
+
+</script>
+
+<!--<script src="index.js">-->
+<!--</script>-->
+
+
+</body>
+</html>
