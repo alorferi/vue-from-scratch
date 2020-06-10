@@ -4,5 +4,16 @@ import App from './App.vue'
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
+  data:{
+    currentRoute: window.location.pathname
+  },
+  computed:{
+        currentComponent(){
+          return  routes[this.currentRoute]
+        }
+  }
+  ,
+  render: function(h){
+return h(this.currentComponent)
+  },
 }).$mount('#app')
