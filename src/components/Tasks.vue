@@ -1,16 +1,28 @@
 <template>
+  <div>
     <ul>
-        <li>Item 1</li>
-         <li>Item 2</li>
-          <li>Item 3</li>
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+      <li>item 4</li>
+      <li>item 5</li>
     </ul>
+  </div>
 </template>
+
 <script>
-export default {
-    name: "Tasks"
-}
+  export default {
+    name: 'Tasks',
+    data() {
+      return {}
+    },
+    computed: {},
+    mounted() {},
+    methods: {}
+  }
 </script>
 
-<style lang="stylus">
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style>
 
 </style>

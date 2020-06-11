@@ -1,8 +1,7 @@
 <template>
   <div>
-<h1>Not found <a href="/">Navigate Back</a> </h1>
+    <h1>Not Found</h1>
   </div>
-
 </template>
 
 <script>
