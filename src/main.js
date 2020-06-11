@@ -1,19 +1,27 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from "vue";
+import App from "./App.vue";
+import Tasks from "./components/Tasks";
+import HelloWorld from "./components/HelloWorld";
+import NotFound from './components/NotFound'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+
+const routes = {
+  "/": App,
+  "/tasks": Tasks,
+  "/hello": HelloWorld,
+};
 
 new Vue({
-  data:{
-    currentRoute: window.location.pathname
+  data: {
+    currentRoute: window.location.pathname,
   },
-  computed:{
-        currentComponent(){
-          return  routes[this.currentRoute]
-        }
-  }
-  ,
-  render: function(h){
-return h(this.currentComponent)
+  computed: {
+    currentComponent() {
+      return routes[this.currentRoute] || NotFound;
+    },
   },
-}).$mount('#app')
+  render: function(h) {
+    return h(this.currentComponent);
+  },
+}).$mount("#app");

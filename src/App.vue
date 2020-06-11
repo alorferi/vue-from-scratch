@@ -7,6 +7,11 @@
     <button type="button" @click="value--">-</button>
     <button type="button" @click="error = !error">Toggle Error Color</button>
     <button type="button" @click="warning = ! warning">Toggle Warning Color</button>
+
+<footer></footer>
+
+<h1>this i stitle</h1>
+
   </div>
 </template>
 
